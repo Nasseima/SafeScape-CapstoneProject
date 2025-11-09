@@ -5,6 +5,8 @@ import { Eye, EyeOff } from 'lucide-react';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081';
+
 interface LoginPageProps {
   setIsAuthenticated: (value: boolean) => void;
   setUsername: (value: string) => void;
@@ -24,7 +26,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ setIsAuthenticated, setUsername }
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8081/api/auth/authenticate', {
+      const response = await axios.post(`${API_URL}/api/auth/authenticate`, {
         email,
         password,
       });
