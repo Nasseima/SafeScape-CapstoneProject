@@ -35,7 +35,7 @@ export default function PlacesPage() {
 
   const fetchPlaces = async () => {
     try {
-      const response = await fetch(`${API_URL}/places/all')
+      const response = await fetch(`${API_URL}/places/all`)
       if (!response.ok) {
         throw new Error('Failed to fetch places')
       }
