@@ -8,6 +8,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/Tabs';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081'; 
+
 const ActivitiesPage = () => {
   const [activitiesData, setActivitiesData] = useState([]);
   const [filteredActivities, setFilteredActivities] = useState([]);
@@ -18,7 +20,7 @@ const ActivitiesPage = () => {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const response = await fetch('http://localhost:8081/activities/all');
+        const response = await fetch(`${API_URL}/activities/all');
         const data = await response.json();
         setActivitiesData(data);
         setFilteredActivities(data);
