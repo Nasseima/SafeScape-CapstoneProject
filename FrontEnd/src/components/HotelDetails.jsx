@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Loader, MapPin, Star } from 'lucide-react'
 import { ToastContainer, toast,  Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081';
 function HotelDetails() {
   const [hotels, setHotels] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +16,7 @@ function HotelDetails() {
     const fetchHotels = async () => {
         try {
           console.log(hotelsId)
-            const response = await fetch(`http://localhost:8081/hotels/${hotelsId}/hotel`);
+            const response = await fetch(`${API_URL}/hotels/${hotelsId}/hotel`);
             if (!response.ok) {
                 throw new Error('Failed to fetch hotels');
             }
