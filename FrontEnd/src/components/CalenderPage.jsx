@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Clock, Edit2, Trash2, Plus } from 'lucide-react';
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
-import { Label } from "../ui/label";
 import {
   Dialog,
   DialogContent,
