@@ -20,7 +20,7 @@ const ActivitiesPage = () => {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const response = await fetch(`${API_URL}/activities/all');
+        const response = await fetch(`${API_URL}/activities/all`);
         const data = await response.json();
         setActivitiesData(data);
         setFilteredActivities(data);
