@@ -4,6 +4,7 @@ import { Star, MapPin, Search, Filter, SortAsc, SortDesc, Loader, Coffee, Wifi, 
 import { ToastContainer, toast,  Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081';
 const HotelsPage = () => {
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
@@ -17,7 +18,7 @@ const HotelsPage = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await fetch("http://localhost:8081/hotels/all");
+        const response = await fetch(`${API_URL}/hotels/all");
         const data = await response.json();
         setHotels(data);
         setFilteredHotels(data);
