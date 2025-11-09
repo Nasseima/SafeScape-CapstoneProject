@@ -11,6 +11,8 @@ import { motion } from "framer-motion"
 import { ToastContainer, toast,  Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081';
+
 export default function PlacesPage() {
   const [places, setPlaces] = useState([])
   const [filteredPlaces, setFilteredPlaces] = useState([])
@@ -33,7 +35,7 @@ export default function PlacesPage() {
 
   const fetchPlaces = async () => {
     try {
-      const response = await fetch('http://localhost:8081/places/all')
+      const response = await fetch(`${API_URL}/places/all')
       if (!response.ok) {
         throw new Error('Failed to fetch places')
       }
