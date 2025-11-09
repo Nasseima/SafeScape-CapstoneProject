@@ -18,7 +18,7 @@ const HotelsPage = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await fetch(`${API_URL}/hotels/all");
+        const response = await fetch(`${API_URL}/hotels/all`);
         const data = await response.json();
         setHotels(data);
         setFilteredHotels(data);
