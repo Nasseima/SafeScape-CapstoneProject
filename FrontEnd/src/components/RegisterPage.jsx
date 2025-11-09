@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081';
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ const RegisterPage = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:8081/api/auth/register', {
+      const response = await axios.post(`${API_URL}/api/auth/register', {
         firstname,
         lastname,
         username,
